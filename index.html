@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navee Smart Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Navee Cockpit</h1>
+            <p class="subtitle">Echtzeit-Telemetrie & Systemdaten</p>
+        </header>
+
+        <!-- Verbindungs-Sektion -->
+        <section class="card connection-card">
+            <div id="connection-status" class="status disconnected">Nicht verbunden</div>
+            <button id="btn-connect" class="btn primary">Cockpit starten (Bluetooth)</button>
+            <button id="btn-disconnect" class="btn danger hidden">Verbindung trennen</button>
+        </section>
+
+        <!-- Dashboard Bereich -->
+        <div id="dashboard" class="disabled">
+            
+            <!-- Großer Tacho -->
+            <div class="card speedo-card">
+                <div class="speedo-circle">
+                    <span id="current-speed">00</span>
+                    <span class="unit">km/h</span>
+                </div>
+            </div>
+
+            <!-- Info-Kacheln (Grid) -->
+            <div class="info-grid">
+                <!-- Akku-Kachel -->
+                <div class="card info-card">
+                    <span class="icon">🔋</span>
+                    <h3>Batterie</h3>
+                    <div class="big-val" id="battery-level">--%</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="battery-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Reichweite-Kachel -->
+                <div class="card info-card">
+                    <span class="icon">🛣️</span>
+                    <h3>Reichweite</h3>
+                    <div class="big-val" id="remaining-range">-- km</div>
+                    <p class="card-desc">Geschätzte Restdistanz</p>
+                </div>
+            </div>
+
+            <!-- Systemdaten-Details -->
+            <div class="card">
+                <h3>System-Informationen</h3>
+                <div class="sys-list">
+                    <div class="sys-item">
+                        <span>Motortemperatur:</span>
+                        <strong id="motor-temp">-- °C</strong>
+                    </div>
+                    <div class="sys-item">
+                        <span>Spannung:</span>
+                        <strong id="voltage">-- V</strong>
+                    </div>
+                    <div class="sys-item">
+                        <span>Gesamtkilometer (Odo):</span>
+                        <strong id="odo">-- km</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
